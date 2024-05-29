@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Business Plan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 1rem;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: #ff6347;
+        }
+
+        main {
+            padding: 2rem;
+        }
+
+        section {
+            margin: 2rem 0;
+            padding: 2rem;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem 0;
+            background-color: #333;
+            color: #fff;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        object {
+            border: none;
+            width: 100%;
+            height: 600px;
+        }
+
+        @media (max-width: 768px) {
+            nav ul li {
+                display: block;
+                text-align: center;
+            }
+            footer {
+                position: static;
+            }
+            object {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Interactive Business Plan</h1>
+        <nav>
+            <ul>
+                <li><a href="#section1">Business Description</a></li>
+                <li><a href="#section2">Market Analysis</a></li>
+                <li><a href="#section3">Sales & Marketing</a></li>
+                <li><a href="#section4">Management</a></li>
+                <li><a href="#section5">Financials</a></li>
+                <li><a href="#section6">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="section1">
+            <h2>Business Description</h2>
+            <object data="docs/Section1_Business_Description.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                <p>It appears you don't have a PDF plugin for this browser. You can <a href="docs/Section1_Business_Description.docx">click here to download the file.</a></p>
+            </object>
+        </section>
+        <section id="section2">
+            <h2>Market and Industry Analysis</h2>
+            <object data="docs/Section2_Market_and_Industry_Analysis.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                <p>It appears you don't have a PDF plugin for this browser. You can <a href="docs/Section2_Market_and_Industry_Analysis.docx">click here to download the file.</a></p>
+            </object>
+        </section>
+        <section id="section3">
+            <h2>Sales and Marketing</h2>
+            <object data="docs/Section3_Sales_and_Marketing.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                <p>It appears you don't have a PDF plugin for this browser. You can <a href="docs/Section3_Sales_and_Marketing.docx">click here to download the file.</a></p>
+            </object>
+        </section>
+        <section id="section4">
+            <h2>Management</h2>
+            <object data="docs/Section4_Management.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                <p>It appears you don't have a PDF plugin for this browser. You can <a href="docs/Section4_Management.docx">click here to download the file.</a></p>
+            </object>
+        </section>
+        <section id="section5">
+            <h2>Financials</h2>
+            <object data="docs/Section5_Financials.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                <p>It appears you don't have a PDF plugin for this browser. You can <a href="docs/Section5_Financials.docx">click here to download the file.</a></p>
+            </object>
+        </section>
+        <section id="section6">
+            <h2>About Us</h2>
+            <object data="docs/Section6_About_Us.docx" type="application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+                <p>It appears you don't have a PDF plugin for this browser. You can <a href="docs/Section6_About_Us.docx">click here to download the file.</a></p>
+            </object>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Your Company. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('nav ul li a').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Intersection Observer for fade-in effect
+            let observer = new IntersectionObserver(entries => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('section').forEach(section => {
+                observer.observe(section);
+            });
+        });
+    </script>
+</body>
+</html>
